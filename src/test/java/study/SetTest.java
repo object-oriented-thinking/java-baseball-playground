@@ -31,7 +31,6 @@ public class SetTest {
         assertThat(numbers.size()).isEqualTo(3);
     }
 
-
     @ParameterizedTest
     @ValueSource(ints = {1,2,3}) //number 파라미터로 배열의 요소 하나씩 보내 테스트
     void request2(int number){
