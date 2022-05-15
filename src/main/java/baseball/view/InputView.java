@@ -1,3 +1,5 @@
+package baseball.view;
+
 import java.util.Scanner;
 
 public class InputView {
