@@ -6,13 +6,13 @@ public class ResultView {
 
 
     public static void printStrikeBallNothing(Baseball baseball) {
-        if (baseball.strike > 0) {
-            System.out.printf("%d스트라이크 ", baseball.strike);
+        if (baseball.getStrike() > 0) {
+            System.out.printf("%d스트라이크 ", baseball.getStrike());
         }
-        if (baseball.ball > 0) {
-            System.out.printf("%d볼 ",baseball.ball);
+        if (baseball.getBall() > 0) {
+            System.out.printf("%d볼 ", baseball.getBall());
         }
-        if (baseball.nothing > 0) {
+        if (baseball.getNothing() > 0) {
             System.out.print("낫씽");
         }
         System.out.println("");

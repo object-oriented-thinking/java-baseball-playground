@@ -33,15 +33,15 @@ public class ReadyForGame {
     }
 
     public static boolean correctAnswer(Baseball baseball) {
-        return baseball.strike == 3;
+        return baseball.getStrike() == 3;
     }
 
 
     public static void initVar(Baseball baseball) {
-        baseball.strike=0;
-        baseball.ball=0;
-        baseball.nothing=0;
-        baseball.tmpMap.clear();
+        baseball.setStrike(0);
+        baseball.setBall(0);
+        baseball.setNothing(0);
+        baseball.getTmpMap().clear();
     }
 
     public static int[] newAnswer(Baseball baseball) {

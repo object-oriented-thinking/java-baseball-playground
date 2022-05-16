@@ -13,56 +13,60 @@ public class CheckScore {
     }
 
     public void checkStrike() {
-        for (int i = 0; i < baseball.answer.length; i++) {
-            if (detectedStrike(baseball.answer, inputNumber, i)) {
-                StrikeFlag(baseball, i);
+        for (int i = 0; i < baseball.getAnswer().length; i++) {
+            if (detectedStrike(baseball.getAnswer(), i)) {
+                strikePlus(i);
             }
         }
     }
 
-    private void StrikeFlag(Baseball baseball, int i) {
-        baseball.strike++;
-        baseball.tmpMap.put(i, i);
+    private void strikePlus(int i) {
+        baseball.plusStrike();
+        baseball.getTmpMap().put(i, i);
     }
 
-    private boolean detectedStrike(int[] answer, int[] inputNumber, int i) {
+    private boolean detectedStrike(int[] answer, int i) {
         return inputNumber[i] == answer[i];
     }
 
 
     public void checkBall() {
-        for (int j = 0; j < baseball.answer.length; j++) {
-            if (notDuplicate(baseball, j)) {
-                searchBall(baseball, baseball.answer, inputNumber, j);
+        for (int j = 0; j < baseball.getAnswer().length; j++) {
+            if (notDuplicate(j)) {
+                searchBall(baseball.getAnswer(),j);
             }
         }
     }
 
-    private boolean notDuplicate(Baseball baseball, int j) {
-        return !baseball.tmpMap.containsKey(j);
+    private boolean notDuplicate(int j) {
+        return !baseball.getTmpMap().containsKey(j);
     }
 
-    private void searchBall(Baseball baseball, int[] answer, int[] inputNumber, int j) {
+    private void searchBall(int[] answer, int j) {
         for (int k = 0; k < answer.length; k++) {
-            if (detectBall(baseball, answer, inputNumber, j, k)) {
-                ballFlag(baseball, j, k);
+            if (detectBall(answer, j, k)) {
+                ballPlus(j, k);
             }
         }
     }
 
-    private void ballFlag(Baseball baseball, int j, int k) {
-        baseball.ball++;
-        baseball.tmpMap.put(j, k);
+    private void ballPlus(int j, int k) {
+        baseball.plusBall();
+        baseball.getTmpMap().put(j, k);
     }
 
-    private boolean detectBall(Baseball baseball, int[] answer, int[] inputNumber, int j, int k) {
-        return !baseball.tmpMap.containsKey(j)&& !baseball.tmpMap.containsValue(k) && inputNumber[j] == answer[k];
+    private boolean detectBall(int[] answer, int j, int k) {
+        return !baseball.getTmpMap().containsKey(j)&& !baseball.getTmpMap().containsValue(k) && inputNumber[j] == answer[k];
     }
 
     public void checkNothing() {
-        if (baseball.ball == 0 && baseball.strike==0) {
-            baseball.nothing++;
+        if (isNothing()) {
+            baseball.plusNothing();
         }
+    }
+
+    private boolean isNothing() {
+        return baseball.getBall() == 0 && baseball.getStrike() == 0;
     }
 
     public static void checkScore(CheckScore chkScore) {
@@ -70,7 +74,5 @@ public class CheckScore {
         chkScore.checkBall();
         chkScore.checkNothing();
     }
-
-
 
 }

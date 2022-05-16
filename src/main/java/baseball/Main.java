@@ -8,9 +8,9 @@ import static baseball.util.ReadyForGame.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    private static int ContinueCount=1;
 
-        int checkContinue=1;
+    public static void main(String[] args) {
         int[] answer = generateNumber();
         Baseball baseball = new Baseball(answer);
 
@@ -23,12 +23,16 @@ public class Main {
            ResultView.printStrikeBallNothing(baseball);
 
             if (correctAnswer(baseball)) {
-                checkContinue = showResultAndCheckContinue();
-                baseball.answer = newAnswer(baseball);
+                checkContinue();
+                baseball.setAnswer(newAnswer(baseball));
             }
 
             initVar(baseball);
-        }while (checkContinue==1);
+        }while (ContinueCount==1);
+    }
+
+    private static void checkContinue() {
+        ContinueCount = showResultAndCheckContinue();
     }
 
 }
