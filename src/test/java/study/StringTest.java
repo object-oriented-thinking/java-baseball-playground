@@ -28,7 +28,7 @@ public class StringTest {
     }
 
     @Test
-    @DisplayName("test StringIndexOutOfBoundsException")
+    @DisplayName("index 범위를 넘어갈 때 StringIndexOutOfBoundsException 예외가 발생한다.")
     void request3(){
         assertThatExceptionOfType(StringIndexOutOfBoundsException.class).isThrownBy(() -> {"abs".charAt(4);}).withMessageMatching("String index out of range: 4");
     }
