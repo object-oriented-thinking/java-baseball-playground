@@ -20,18 +20,18 @@ e.g. 상대방(컴퓨터)의 수가 425일 때 123을 제시한 경우 : `1스�
 4) 게임을 종료한 후 게임을 다시 시작하거나 완전히 종료할 수 있다
 
 ### 기능 목록
-<b>InputView</b>
+<b>inputView</b>
 
 System.in을 담당하는 UI 로직
 
-<b>ResultView</b>
+<b>resultView</b>
 
 System.out을 담당하는 UI 로직
 
-<b>MakeNum</b>
+<b>makeNum</b>
 
 숫자 3개 랜덤으로 추출하는 메소드
 
-<b>CheckNum</b>
+<b>checkNum</b>
 
 숫자 3개가 맞는지 확인하는 메소드
