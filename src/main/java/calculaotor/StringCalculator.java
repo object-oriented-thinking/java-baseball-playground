@@ -26,11 +26,9 @@ public class StringCalculator {
             }
         });
 
-        Number number = numbers.stream()
+        return numbers.stream()
             .reduce((number1, number2) -> number1.calculate(delimiter.pollFirst(), number2))
             .orElseThrow(RuntimeException::new);
-
-        return number;
     }
 
     public void printResult() {

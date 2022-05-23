@@ -8,6 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -21,7 +22,7 @@ class GameServiceTest {
     void test1() {
         //when & then
         assertDoesNotThrow(
-            () -> baseballService.storeRandomNumbers()
+                () -> baseballService.storeRandomNumbers()
         );
     }
 
@@ -30,10 +31,9 @@ class GameServiceTest {
     void test2() {
         //given
         Numbers numbers = baseballService.storeRandomNumbers();
+        List<Number> numberList = Arrays.asList(new Number(4), new Number(9), new Number(3));
         //when & then
-        assertThat(numbers.getNumbers().containsAll(
-            Arrays.asList(new Number(4), new Number(9), new Number(3)))
-        ).isTrue();
+        assertThat(numbers.getNumbers().containsAll(numberList)).isTrue();
 
     }
 
@@ -42,7 +42,7 @@ class GameServiceTest {
     void test3() {
         //given & when & then
         assertDoesNotThrow(
-            () -> baseballService.inputNumbers()
+                () -> baseballService.inputNumbers()
         );
     }
 }

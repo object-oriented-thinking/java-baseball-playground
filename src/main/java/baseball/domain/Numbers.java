@@ -2,16 +2,15 @@ package baseball.domain;
 
 import baseball.error.NumberDuplicateException;
 import baseball.error.NumberOfInputException;
-import baseball.result.Result;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class Numbers {
     private static final int NUMBERS_SIZE = 3;
-    private List<Number> numbers;
+    private final List<Number> numbers;
 
     public Numbers(List<Number> numbers) {
         if (!Objects.equals(numbers.size(), NUMBERS_SIZE)) {
@@ -24,8 +23,7 @@ public class Numbers {
             }
         });
 
-        this.numbers = numbers.stream()
-            .collect(Collectors.toList());
+        this.numbers = new ArrayList<>(numbers);
     }
 
 

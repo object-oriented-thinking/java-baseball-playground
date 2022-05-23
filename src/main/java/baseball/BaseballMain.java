@@ -12,13 +12,9 @@ public class BaseballMain {
         System.out.println("게임을 시작합니다!");
         RandomNumbersSpecification randomNumbersSpecification = new RandomNumbersSpecificationApi();
         BaseballInputClient baseballInputClient = new BaseballInputClientImpl();
-
         do {
             BaseballService baseballService = new BaseballService(randomNumbersSpecification, baseballInputClient);
             baseballService.startBaseball();
-            if (baseballInputClient.command().equals(GameStatus.STOP)) {
-                break;
-            }
-        } while (true);
+        } while (!baseballInputClient.command().equals(GameStatus.STOP));
     }
 }
