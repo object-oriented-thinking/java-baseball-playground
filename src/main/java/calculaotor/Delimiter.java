@@ -8,7 +8,7 @@ public enum Delimiter {
     MULTIPLICATION("*"),
     DIVISION("/");
 
-    private String delimiter;
+    private final String delimiter;
 
     Delimiter(String delimiter) {
         this.delimiter = delimiter;
