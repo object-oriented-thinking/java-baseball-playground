@@ -14,11 +14,8 @@ class NumberTest {
         //given
         int request = 4;
         //when & then
-        Assertions.assertDoesNotThrow(
-            () -> new Number(request)
-        );
+        Assertions.assertDoesNotThrow(() -> new Number(request));
     }
-
 
     @Test
     @DisplayName("Number는 1 이상 9 이하의 자연수 아니면 IllegalArgumentException 예외를 발생한다.")
@@ -26,9 +23,7 @@ class NumberTest {
         //given
         int request = -1;
         //when & then
-        assertThatThrownBy(
-            () -> new Number(request)
-        ).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> new Number(request)).isInstanceOf(IllegalArgumentException.class);
     }
 
 }

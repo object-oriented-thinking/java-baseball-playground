@@ -1,7 +1,6 @@
 package baseball.domain;
 
 import baseball.error.NumberOfInputException;
-import baseball.result.Result;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -23,7 +22,7 @@ class NumbersTest {
 
         //when & then
         Assertions.assertAll(
-            () -> Assertions.assertDoesNotThrow(() -> new Numbers(request))
+                () -> Assertions.assertDoesNotThrow(() -> new Numbers(request))
         );
     }
 
@@ -36,12 +35,12 @@ class NumbersTest {
         Numbers numbers = new Numbers(request);
         //then
         Assertions.assertAll(
-            () -> assertThat(
-                numbers.getNumbers()
-                    .containsAll(
-                        Arrays.asList(new Number(1), new Number(2), new Number(3))
-                    )
-            ).isTrue()
+                () -> assertThat(
+                        numbers.getNumbers()
+                                .containsAll(
+                                        Arrays.asList(new Number(1), new Number(2), new Number(3))
+                                )
+                ).isTrue()
         );
     }
 
@@ -55,9 +54,9 @@ class NumbersTest {
         Numbers numbers = new Numbers(request);
         //then
         Assertions.assertAll(
-            () -> assertThat(request.contains(numbers.getNumbers().get(0))).isTrue(),
-            () -> assertThat(request.contains(numbers.getNumbers().get(1))).isTrue(),
-            () -> assertThat(request.contains(numbers.getNumbers().get(2))).isTrue()
+                () -> assertThat(request.contains(numbers.getNumbers().get(0))).isTrue(),
+                () -> assertThat(request.contains(numbers.getNumbers().get(1))).isTrue(),
+                () -> assertThat(request.contains(numbers.getNumbers().get(2))).isTrue()
         );
     }
 
@@ -68,7 +67,7 @@ class NumbersTest {
         List<Number> request = Arrays.asList(new Number(1), new Number(2), new Number(3), new Number(4));
         //when & then
         assertThatThrownBy(
-            () -> new Numbers(request)
+                () -> new Numbers(request)
         ).isInstanceOf(NumberOfInputException.class);
     }
 
@@ -83,7 +82,7 @@ class NumbersTest {
         Numbers input = new Numbers(inputRequest);
         //when & then
         assertDoesNotThrow(
-            () -> store.compareTo(input)
+                () -> store.compareTo(input)
         );
     }
 

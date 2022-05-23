@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Number {
     private static final int MIN_NUMBER = 1;
     private static final int MAX_NUMBER = 9;
-    private int number;
+    private final int number;
 
     public Number(int number) {
         if (number < MIN_NUMBER || number > MAX_NUMBER) {

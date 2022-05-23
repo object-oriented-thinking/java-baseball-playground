@@ -1,5 +1,6 @@
 package baseball.result;
 
+import baseball.domain.Result;
 import baseball.error.CalculationFailureException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -18,7 +19,7 @@ class ResultTest {
         boolean nothing = false;
         //when & then
         Assertions.assertDoesNotThrow(
-            () -> new Result(strike, ball, nothing)
+                () -> new Result(strike, ball, nothing)
         );
     }
 
@@ -32,7 +33,7 @@ class ResultTest {
         boolean nothing = false;
         //when & then
         assertThatThrownBy(
-            ()-> new Result(strike, ball, nothing)
+                () -> new Result(strike, ball, nothing)
         ).isInstanceOf(CalculationFailureException.class);
     }
 
@@ -45,7 +46,7 @@ class ResultTest {
         boolean nothing = true;
         //when & then
         assertThatThrownBy(
-            ()-> new Result(strike, ball, nothing)
+                () -> new Result(strike, ball, nothing)
         ).isInstanceOf(CalculationFailureException.class);
     }
 

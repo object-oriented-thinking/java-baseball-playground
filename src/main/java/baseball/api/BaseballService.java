@@ -6,7 +6,7 @@ import baseball.domain.Numbers;
 import baseball.domain.RandomNumbersSpecification;
 import baseball.error.NumberDuplicateException;
 import baseball.error.NumberOfInputException;
-import baseball.result.Result;
+import baseball.domain.Result;
 
 import java.util.List;
 
@@ -49,10 +49,7 @@ public class BaseballService {
         List<Number> request = baseballInputClient.inputNumbers();
         try {
             return new Numbers(request);
-        } catch (NumberOfInputException e) {
-            System.out.println(e.getMessage());
-            return inputNumbers();
-        } catch (NumberDuplicateException e) {
+        } catch (NumberOfInputException | NumberDuplicateException e) {
             System.out.println(e.getMessage());
             return inputNumbers();
         }

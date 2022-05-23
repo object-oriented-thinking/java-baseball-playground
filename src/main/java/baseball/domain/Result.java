@@ -1,13 +1,13 @@
-package baseball.result;
+package baseball.domain;
 
 import baseball.error.CalculationFailureException;
 
 import java.util.Objects;
 
 public class Result {
-    private int strike;
-    private int ball;
-    private boolean nothing;
+    private final int strike;
+    private final int ball;
+    private final boolean nothing;
 
     public Result(int strike, int ball, boolean nothing) {
         if (strike + ball > 3) {

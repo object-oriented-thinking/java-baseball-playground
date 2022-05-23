@@ -16,10 +16,7 @@ public class RandomNumbersSpecificationImpl implements RandomNumbersSpecificatio
         Set<Number> numbers = new HashSet<>();
         do {
             numbers.add(new Number(getNumberOne()));
-            if (numbers.size() == 3) {
-                break;
-            }
-        }while (true);
+        } while (numbers.size() != 3);
         List<Number> numberList =new ArrayList<>(numbers);
         return new Numbers(numberList);
     }
