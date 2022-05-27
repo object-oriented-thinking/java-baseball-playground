@@ -1,20 +1,20 @@
 package baseball.view;
 
-import baseball.domain.Ball;
+import baseball.domain.Baseball;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class InputView {
-    public Ball inputBall() {
+    public Baseball inputBall() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("숫자를 입력해 주세요 : ");
         String input = scanner.next();
-        Set<Integer> integerSet = Arrays.stream(input.split("")).mapToInt(Integer::parseInt).boxed().collect(Collectors.toSet());
+        List<Integer> list = Arrays.stream(input.split("")).mapToInt(Integer::parseInt).boxed().collect(Collectors.toList());
 
-        return new Ball(integerSet);
+        return new Baseball(list);
     }
 
     public boolean resumeGame() {

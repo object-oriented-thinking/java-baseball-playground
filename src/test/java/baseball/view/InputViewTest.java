@@ -1,6 +1,6 @@
 package baseball.view;
 
-import baseball.domain.Ball;
+import baseball.domain.Baseball;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class InputViewTest {
     InputView inputView;
-    Ball ball;
+    Baseball baseball;
 
     @BeforeEach
     void setUp() {
@@ -24,14 +24,14 @@ public class InputViewTest {
 
     @Test
     void countTest() {
-        ball = inputView.inputBall();
-        assertThat(ball.getBalls().size()).isEqualTo(3);
+        baseball = inputView.inputBall();
+        assertThat(baseball.getBaseballs().size()).isEqualTo(3);
     }
 
     @Test
     void rangeTest() {
-        ball = inputView.inputBall();
-        assertThat(ball.getBalls().stream().filter(b -> b < 10 && b > 0).count()).isEqualTo(3);
+        baseball = inputView.inputBall();
+        assertThat(baseball.getBaseballs().stream().filter(b -> b < 10 && b > 0).count()).isEqualTo(3);
     }
 
     @Test

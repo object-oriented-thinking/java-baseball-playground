@@ -1,26 +1,30 @@
 package baseball.view;
 
 import baseball.domain.Action;
-import baseball.domain.BallStatus;
+import baseball.domain.BaseballStatus;
 
 public class OutputView {
-    public String outputBallStatus(BallStatus ballStatus) throws Exception {
+    public String outputBaseballStatus(BaseballStatus baseballStatus) throws Exception {
         String result = "";
-        if (!ballStatus.existsBall() && !ballStatus.existsStrike() && !ballStatus.existsNothing())
+        if (!baseballStatus.existsBall() && !baseballStatus.existsStrike() && !baseballStatus.nothing())
             throw new Exception("결과를 반환할 수 없습니다");
-        if (ballStatus.existsBall()) {
-            result += ballStatus.getBall() + Action.볼.toString() + " ";
+        if (baseballStatus.existsBall()) {
+            result += baseballStatus.getBall() + Action.볼.toString() + " ";
         }
-        if (ballStatus.existsStrike()) {
-            result += ballStatus.getStrike() + Action.스트라이크.toString();
+        if (baseballStatus.existsStrike()) {
+            result += baseballStatus.getStrike() + Action.스트라이크.toString();
         }
-        if (ballStatus.existsNothing()) {
+        if (baseballStatus.nothing()) {
             return Action.낫싱.toString();
         }
         return result;
     }
 
-    public boolean exitGame(BallStatus ballStatus) {
+    public void printBaseballStatus(BaseballStatus baseballStatus) throws Exception {
+        System.out.println(outputBaseballStatus(baseballStatus));
+    }
+
+    public boolean exitGame(BaseballStatus ballStatus) {
         if (ballStatus.exitGame()) {
             System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
             return true;
