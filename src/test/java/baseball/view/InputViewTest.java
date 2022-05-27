@@ -15,7 +15,7 @@ public class InputViewTest {
     @BeforeEach
     void setUp() {
         inputView = new InputView();
-        String input = "384";
+        String input = "349";
         OutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -23,13 +23,13 @@ public class InputViewTest {
     }
 
     @Test
-    void countTest() {
+    void countTest() throws Exception {
         baseball = inputView.inputBall();
         assertThat(baseball.getBaseballs().size()).isEqualTo(3);
     }
 
     @Test
-    void rangeTest() {
+    void rangeTest() throws Exception {
         baseball = inputView.inputBall();
         assertThat(baseball.getBaseballs().stream().filter(b -> b < 10 && b > 0).count()).isEqualTo(3);
     }
