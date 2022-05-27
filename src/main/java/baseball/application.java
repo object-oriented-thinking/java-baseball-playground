@@ -7,8 +7,6 @@ import baseball.service.RandomNumGenerator;
 import baseball.view.InputView;
 import baseball.view.OutputView;
 
-import java.util.Arrays;
-
 public class application {
     public static void main(String[] args) throws Exception {
         InputView inputView = new InputView();
@@ -17,8 +15,7 @@ public class application {
         BaseballService baseballService = new BaseballService();
 
         while(true){
-            //Baseball randomBaseball = new Baseball(randomNumGenerator.makeNum());
-            Baseball randomBaseball = new Baseball(Arrays.asList(4,2,5));
+            Baseball randomBaseball = new Baseball(randomNumGenerator.makeNum());
             BaseballStatus baseballStatus = new BaseballStatus();
 
             while(!outputView.exitGame(baseballStatus)){
