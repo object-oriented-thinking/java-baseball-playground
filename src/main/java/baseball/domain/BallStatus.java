@@ -28,4 +28,8 @@ public class BallStatus {
     public boolean existsStrike() {
         return strike>0;
     }
+
+    public boolean exitGame(){
+        return getStrike()==3;
+    }
 }
