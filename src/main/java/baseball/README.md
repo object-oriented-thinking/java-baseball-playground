@@ -21,17 +21,17 @@ e.g. 상대방(컴퓨터)의 수가 425일 때 123을 제시한 경우 : `1스�
 
 ### 기능 목록
 <b>엔티티</b>
-- [ ] Ball: 세자리 숫자 저장하는 엔티티 클래스
-- [ ] BallStatus: 유저 Ball과 랜덤 Ball 비교한 결과를 저장하는 엔티티 클래스
-- [ ] Action: 동작들을 담는 enum 클래스
+- [x] Ball: 세자리 숫자 저장하는 엔티티 클래스
+- [x] BallStatus: 유저 Ball과 랜덤 Ball 비교한 결과를 저장하는 엔티티 클래스
+- [x] Action: 동작들을 담는 enum 클래스
 
 <b>서비스</b>
 - [ ] BaseballService
   - [ ] isBall: 볼 여부 판별
   - [ ] isStrike: 스트라이크 여부 판별
   - [ ] compare: RandomNum, UserNum 비교해 결과 반환
-- [ ] RandomNumGenerator: 임의의 서로다른 3자리 수 생성
+- [x] RandomNumGenerator: 임의의 서로다른 3자리 수 생성
 
 <b>뷰</b>
-- [ ] InputView: 사용자로부터 입력 받는 뷰 담당하는 클래스
-- [ ] OutputView: 출력 하는 뷰 담당하는 클래스
+- [x] InputView: 사용자로부터 입력 받는 뷰 담당하는 클래스
+- [x] OutputView: 출력 하는 뷰 담당하는 클래스
