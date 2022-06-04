@@ -1,15 +1,28 @@
 package baseball.domain;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Baseball {
-    List<Integer> baseballs;
+    private final List<Ball> baseballs;
 
-    public Baseball(List<Integer> balls) {
-        this.baseballs = balls;
+    public Baseball(final List<Ball> ballList){
+        this.baseballs= new ArrayList<>(ballList);
+        isDistinct();
     }
 
-    public List<Integer> getBaseballs() {
-        return baseballs;
+    public List<Ball> getBaseballs() {
+        return Collections.unmodifiableList(baseballs);
+    }
+
+    public void isDistinct(){
+        for(int i=0;i<this.baseballs.size();i++){
+            for(int j=0;j<i;j++){
+                if(this.baseballs.get(i).getNumber() == this.baseballs.get(j).getNumber()){
+                    throw new RuntimeException("중복된 값이 있습니다.");
+                }
+            }
+        }
     }
 }

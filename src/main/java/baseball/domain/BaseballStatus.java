@@ -1,8 +1,19 @@
 package baseball.domain;
 
 public class BaseballStatus {
-    int ball;
-    int strike;
+    private final int ball;
+    private final int strike;
+
+    public BaseballStatus(int ball, int strike) throws Exception {
+        this.ball = ball;
+        this.strike = strike;
+        this.isValid();
+    }
+    private void isValid() throws Exception{
+        if (!this.existsBall() && !this.existsStrike() && !this.nothing())
+            throw new Exception("결과를 반환할 수 없습니다");
+    }
+
 
     public int getBall() {
         return ball;
@@ -10,14 +21,6 @@ public class BaseballStatus {
 
     public int getStrike() {
         return strike;
-    }
-
-    public void setBall(int ball) {
-        this.ball = ball;
-    }
-
-    public void setStrike(int strike) {
-        this.strike = strike;
     }
 
     @Override

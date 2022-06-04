@@ -23,15 +23,15 @@ public class InputViewTest {
     }
 
     @Test
-    void countTest() throws Exception {
+    void countTest() throws RuntimeException {
         baseball = inputView.inputBall();
         assertThat(baseball.getBaseballs().size()).isEqualTo(3);
     }
 
     @Test
-    void rangeTest() throws Exception {
+    void rangeTest() throws RuntimeException {
         baseball = inputView.inputBall();
-        assertThat(baseball.getBaseballs().stream().filter(b -> b < 10 && b > 0).count()).isEqualTo(3);
+        assertThat(baseball.getBaseballs().stream().filter(b -> b.getNumber() < 10 && b.getNumber() > 0).count()).isEqualTo(3);
     }
 
     @Test

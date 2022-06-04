@@ -4,10 +4,9 @@ import baseball.domain.Action;
 import baseball.domain.BaseballStatus;
 
 public class OutputView {
-    public String outputBaseballStatus(BaseballStatus baseballStatus) throws Exception {
+    public String outputBaseballStatus(BaseballStatus baseballStatus) {
         String result = "";
-        if (!baseballStatus.existsBall() && !baseballStatus.existsStrike() && !baseballStatus.nothing())
-            throw new Exception("결과를 반환할 수 없습니다");
+
         if (baseballStatus.existsBall()) {
             result += baseballStatus.getBall() + Action.볼.toString() + " ";
         }
@@ -20,7 +19,7 @@ public class OutputView {
         return result;
     }
 
-    public void printBaseballStatus(BaseballStatus baseballStatus) throws Exception {
+    public void printBaseballStatus(BaseballStatus baseballStatus) {
         System.out.println(outputBaseballStatus(baseballStatus));
     }
 
